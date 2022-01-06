@@ -1,6 +1,11 @@
 import streamlit as st
 import wget
 
+
+cat_101 = wget.download('https://http.cat/101.jpg') 
+cat_102 = wget.download('https://http.cat/102.jpg') 
+
+
 st.title("My Streamlit App!")
 
 with st.form("app_form"):
@@ -8,4 +13,8 @@ with st.form("app_form"):
   
   submitted = st.form_submit_button("Submit")
   if submitted:
-    st.write("You pressed submit!")
+    if status_code == '101':
+      st.image('101.jpg')
+    elif status_code == '102':
+      st.image('102.jpg')
+
